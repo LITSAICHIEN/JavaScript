@@ -1,21 +1,22 @@
 @charset "UTF-8";
-body {
+body, header {
   width: 1260px;
   margin: 0 auto;
 }
-header {
+.title {
   font-size: 35px;
   position: relative;
   text-align: center;
 }
 .frs {
   position: absolute;
-  top: 30%;
-  right: 0;
+  top: 9%;
+  right: 3.4%;
   width: 120px;
   padding: 0.5% 1%;
   font-size: 15px;
   font-weight: bold;
+  text-align: center;
   background-color: #5fb404;
   color: #fff;
   cursor: pointer;
@@ -49,6 +50,7 @@ header {
   padding: 60px 10px;
   border-radius: 10px;
   width: 450px;
+  font-size: 20px;
   text-align: center;
 }
 /*ここからはメガメニュー*/
@@ -94,64 +96,72 @@ header {
   color: #000;
 }
 /*ここからはハンバーガーメニュー*/
-.navToggle {
-    display: block;
-    position: fixed;
-    right: 13px;
-    top: 12px;
-    width: 42px;
-    height: 47px;
-    cursor: pointer;
-    z-index: 3;
-    background: #666;
-    text-align: center;
+.hamburgermenu, .navToggle {
+  display: none;
 }
-.navToggle span {
-    display: block;
-    position: absolute;
-    width: 30px;
-    border-bottom: solid 3px #eee;
-    -webkit-transition: .35s ease-in-out;
-    -moz-transition: .35s ease-in-out;
-    transition: .35s ease-in-out;
-    left: 6px;
+/*ここからはスライドショーのライトボタン系*/
+.prev-btn {
+  position: absolute;
+  top: 85%;
+  left: 5%;
+  font-size: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fff;
 }
-.navToggle span:nth-child(1) {
-    top: 9px;
+.next-btn {
+  position: absolute;
+  top: 85%;
+  right: 5%;
+  font-size: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fff;
 }
-.navToggle span:nth-child(2) {
-    top: 18px;
+.prev-btn:hover, .next-btn:hover {
+  opacity: 0.7;
 }
-.navToggle span:nth-child(3) {
-    top: 27px;
+.slide-wrapper {
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
-.navToggle span:nth-child(4) {
-    border: none;
-    color: #eee;
-    font-size: 10px;
-    font-weight: bold;
-    top: 30px;
+ul.slides {
+  padding: 0;
+  margin: 0;
 }
-.navToggle.active span:nth-child(1) {
-    top: 18px;
-    left: 6px;
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    transform: rotate(-45deg);
+.slide {
+  list-style-type: none;
+  display: none;
 }
-.navToggle.active span:nth-child(2),
-.navToggle.active span:nth-child(3) {
-    top: 18px;
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    transform: rotate(45deg);
+li.slide img {
+  width: 1260px;
+  text-align: center;
+}
+.active {
+  display: block;
+}
+.btn-wrapper {
+  text-align: center;
+}
+.btn {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 65px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  color: gray;
+}
+.btn:hover {
+  opacity: 0.7;
 }
 /*ここからはアコーディオン*/
 .faq ul {
   margin: 3% 0;
   padding: 0;
-  border: 2px solid #D8D8D8;
-  background-color: #D8D8D8;
+  border: 2px solid #e6e6fa;
+  background-color: #e6e6fa;
   list-style: none;
   text-align: center;
   clear: both;
@@ -228,21 +238,122 @@ li.faq-list-item:last-child {
     left: 8%;
     width: 80%;
   }
-  .parents, .child, li.faq-list-item, .contents {
+  .title {
+    font-size: 4.5vw;
+  }
+  li.faq-list-item, .contents {
     font-size: 2.5vw;
   }
-  .frs {
-    right: 13%;
-    top: 5%;
-    width: 18%;
-    height: auto;
-    padding: 1% 0;
-    font-size: 2vw;
-  }
-  .submenu {
-    width: 25%;
-  }
-  .megamenu {
+  .frs, .megamenu {
     display: none;
+  }
+  .hamburgermenu, .navToggle {
+    display: block;
+  }
+  .hamburgermenu {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background: #fff;
+    color: #000;
+    text-align: center;
+    transform: translateY(-100%);
+    transition: all 0.6s;
+    width: 100%;
+  }
+  .hamburgermenu ul {
+    background: #ccc;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+  }
+  .hamburgermenu ul li {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    font-size: 3.5vw;
+    font-weight: bold;
+    border-bottom: 1px dotted #333;
+  }
+  .hamburgermenu ul li:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  .hamburgermenu ul li a {
+    text-decoration: none;
+    display: block;
+    color: #000;
+    padding: 20px 0;
+  }
+  .hamburgermenu ul li a:hover {
+    color: #fff;
+    opacity: 0.7;
+  }
+  .hamburgermenu.active {
+    transform: translateY(0%);
+  }
+  .navToggle {
+      display: block;
+      position: fixed;
+      right: 13px;
+      top: 12px;
+      width: 42px;
+      height: 47px;
+      cursor: pointer;
+      z-index: 3;
+      background: #666;
+      text-align: center;
+  }
+  .navToggle span {
+      display: block;
+      position: absolute;
+      width: 30px;
+      border-bottom: solid 3px #eee;
+      -webkit-transition: .35s ease-in-out;
+      -moz-transition: .35s ease-in-out;
+      transition: .35s ease-in-out;
+      left: 6px;
+  }
+  .navToggle span:nth-child(1) {
+      top: 9px;
+  }
+  .navToggle span:nth-child(2) {
+      top: 18px;
+  }
+  .navToggle span:nth-child(3) {
+      top: 27px;
+  }
+  .navToggle span:nth-child(4) {
+      border: none;
+      color: #eee;
+      font-size: 10px;
+      font-weight: bold;
+      top: 30px;
+  }
+  .navToggle.active span:nth-child(1) {
+      top: 18px;
+      left: 6px;
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+  }
+  .navToggle.active span:nth-child(2),
+  .navToggle.active span:nth-child(3) {
+      top: 18px;
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      transform: rotate(45deg);
+  }
+  li.slide img {
+    width: 100%;
+    height: auto;
+  }
+  .next-btn, .prev-btn {
+    top: 40%;
+    font-size: 5vw;
+  }
+  .btn {
+    font-size: 6vw;
   }
 }
