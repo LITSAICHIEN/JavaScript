@@ -39,7 +39,7 @@ body, header {
   bottom: 0;
   left: 0;
   background-color: rgb(0, 0, 0, 0.6);
-  z-index: 100;
+  z-index: 1000;
   display: none;
 }
 .modal {
@@ -80,7 +80,7 @@ body, header {
   background-color: #ffbf00;
   border-left: 0.5px solid #fff;
   box-sizing: border-box;
-  z-index: 100;
+  z-index: 1000;
 }
 .child {
   text-align: left;
@@ -99,63 +99,113 @@ body, header {
 .hamburgermenu, .navToggle {
   display: none;
 }
-/*ここからはスライドショーのライトボタン系*/
-.prev-btn {
-  position: absolute;
-  top: 85%;
-  left: 5%;
-  font-size: 50px;
-  font-weight: bold;
-  cursor: pointer;
-  color: #fff;
-}
-.next-btn {
-  position: absolute;
-  top: 85%;
-  right: 5%;
-  font-size: 50px;
-  font-weight: bold;
-  cursor: pointer;
-  color: #fff;
-}
-.prev-btn:hover, .next-btn:hover {
-  opacity: 0.7;
-}
-.slide-wrapper {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-ul.slides {
-  padding: 0;
-  margin: 0;
-}
-.slide {
-  list-style-type: none;
-  display: none;
-}
-li.slide img {
+/*ここからはスライドショーのオート系*/
+.autoslide {
+  margin: 0 auto;
   width: 1260px;
+  text-align: left;
+  overflow: hidden;
+}
+.autoslide ul {
+  width: 100%;
+  height: 50vw;
+  text-align: left;
+  overflow: hidden;
+  position: relative;
+}
+.autoslide ul li {
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: none;
+  position: absolute;
+}
+.autoslide ul li img {
+  width: 100%;
+}
+
+/*ここからはスライドショーのライトボタン系*/
+.lightslide {
+  margin: 0 auto;
+  width: 1260px;
+  text-align: left;
+  overflow: hidden;
+}
+.lightslide ul {
+  width: 100%;
+  height: 50vw;
+  text-align: left;
+  overflow: hidden;
+  position: relative;
+}
+.lightslide ul li {
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: none;
+  position: absolute;
+}
+.lightslide ul li img {
+  width: 100%;
+}
+
+.pagiNation {
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  height: 15px;
   text-align: center;
+  position: absolute;
+  z-index: 110;
 }
-.active {
-  display: block;
-}
-.btn-wrapper {
-  text-align: center;
-}
-.btn {
+.pagiNation a {
+  margin: 0 5px;
+  width: 15px;
+  height: 15px;
   display: inline-block;
-  margin: 0 10px;
-  font-size: 65px;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  color: gray;
+  overflow: hidden;
+  background-color: #aaa;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
 }
-.btn:hover {
-  opacity: 0.7;
+.pagiNation a:hover {
+  opacity: 0.6;
 }
+.pagiNation a.pnActive {
+  background-color: #000;
+}
+.pagiNation a.pnActive:hover {
+  opacity: 1;
+}
+.lightslide .btnPrev, .lightslide .btnNext {
+  margin-top: -25px;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  z-index: 105;
+  transition: all 0.2s ease-in-out;
+}
+.lightslide .btnPrev {
+  left: 15px;
+  background-image: url(images/arrow_left.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: transparent;
+}
+.lightslide .btnNext {
+  left: 15px;
+  background-image: url(images/arrow_right.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: transparent;
+}
+.lightslide .btnPrev:hover, .lightslide .btnNext:hover {
+  opacity: 0.6;
+}
+
+
 /*ここからはアコーディオン*/
 .faq ul {
   margin: 3% 0;
@@ -169,7 +219,6 @@ li.slide img {
 li.faq-list-item {
   margin-left: 0;
   font-size: 15px;
-  position: relative;
   border-bottom: 2px solid #fafafa;
   cursor: pointer;
 }
@@ -228,7 +277,7 @@ li.faq-list-item:last-child {
 }
 /*ここからはレスポンシブ*/
 @media screen and (min-width:410px) and (max-width:800px) {
-  body, header, nav, .submenu {
+  body, header, nav, .submenu, .autoslide, .lightslide {
     margin: auto;
     width: 100%;
     font-size: 2.5vw;
@@ -252,7 +301,7 @@ li.faq-list-item:last-child {
   }
   .hamburgermenu {
     position: fixed;
-    z-index: 2;
+    z-index: 999;
     top: 0;
     left: 0;
     background: #fff;
@@ -301,7 +350,7 @@ li.faq-list-item:last-child {
       width: 42px;
       height: 47px;
       cursor: pointer;
-      z-index: 3;
+      z-index: 1000;
       background: #666;
       text-align: center;
   }
@@ -344,16 +393,5 @@ li.faq-list-item:last-child {
       -webkit-transform: rotate(45deg);
       -moz-transform: rotate(45deg);
       transform: rotate(45deg);
-  }
-  li.slide img {
-    width: 100%;
-    height: auto;
-  }
-  .next-btn, .prev-btn {
-    top: 40%;
-    font-size: 5vw;
-  }
-  .btn {
-    font-size: 6vw;
   }
 }

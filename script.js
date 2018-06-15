@@ -17,28 +17,49 @@ $(document).ready(function(){
   //ここからはハンバーガーメニュー
   $('.navToggle').click(function() {
         $(this).toggleClass('active');
-
         if ($(this).hasClass('active')) {
             $('.hamburgermenu').addClass('active');
         } else {
             $('.hamburgermenu').removeClass('active');
         }
     });
+  //ここからはスライドショーのオート系
+  var $setElm = $('.autoslide'),
+    fadeSpeed = 1500,
+    switchDelay = 5000;
+
+    $setElm.each(function(){
+        var targetObj = $(this);
+        var findUl = targetObj.find('ul');
+        var findLi = targetObj.find('li');
+        var findLiFirst = targetObj.find('li:first');
+
+        findLi.css({display:'block',opacity:'0',zIndex:'99'});
+        findLiFirst.css({zIndex:'100'}).stop().animate({opacity:'1'},fadeSpeed);
+
+        setInterval(function(){
+            findUl.find('li:first-child').animate({opacity:'0'},fadeSpeed).next('li').css({zIndex:'100'}).animate({opacity:'1'},fadeSpeed).end().appendTo(findUl).css({zIndex:'99'});
+        },switchDelay);
+    });
+
   //ここからはスライドショーのライトボタン系
-  $('.btn').click(function() {
-    $('.active').removeClass('active');
-    var clickedIndex=$('.btn').index($(this));
-    $('.slide').eq(clickedIndex).addClass('active');
-  });
-  $('.change-btn').click(function() {
-    var $displaySlide=$('.active');
-    $displaySlide.removeClass('active');
-    if ($(this).hasClass('next-btn')) {
-      $displaySlide.next().addClass('active');
-    } else {
-      $displaySlide.prev().addClass('active');
-    }
-  });
+  var $setElm = $('.lightslide'),
+    fadeSpeed = 1500,
+    switchDelay = 5000;
+
+    $setElm.each(function(){
+        var targetObj = $(this);
+        var findUl = targetObj.find('ul');
+        var findLi = targetObj.find('li');
+        var findLiFirst = targetObj.find('li:first');
+
+        findLi.css({display:'block',opacity:'0',zIndex:'99'});
+        findLiFirst.css({zIndex:'100'}).stop().animate({opacity:'1'},fadeSpeed);
+
+        setInterval(function(){
+            findUl.find('li:first-child').animate({opacity:'0'},fadeSpeed).next('li').css({zIndex:'100'}).animate({opacity:'1'},fadeSpeed).end().appendTo(findUl).css({zIndex:'99'});
+        },switchDelay);
+    });
   //ここからはアコーディオン
   $('.faq-list-item').click(function() {
     var $contents=$(this).find('.contents')
