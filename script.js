@@ -219,15 +219,3 @@ $(document).ready(function(){
     }, 800);
   });
 });
-//ここからはAjax、json
-$.ajax({
-	url: 'data.json',
-	dataType: 'json',
-	data: {name: 'name'},
-	success: function(data){
-		var dataArray = data.names;
-		$.each(dataArray, function(i){
-			$('.nameData').append('<p>division: ' + dataArray[i].division + 'person: ' + dataArray[i].name + '(age: ' + dataArray[i].age + ')</p>');
-		});
-	}
-});

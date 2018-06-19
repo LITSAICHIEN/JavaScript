@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript課題</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+  $(document).ready(function () {
+    $.ajax({
+    type: 'GET',
+    url: 'data.json',
+    dataType: 'json',
+    success: function(data){
+          for(var i in data){
+          $('#output').append('<tr><th>' + data[i].division + '</tr></th>');
+              for(var j in data[i].person){
+                  $('#output').append('<tr><td>' + data[i].person[j].name + '（' + data[i].person[j].age + '才）</td></tr>');
+              }
+          }
+      }
+});
+});
+</script>
+</head>
+
+<body>
+  <table id="output"></table>
+</body>
+</html>
