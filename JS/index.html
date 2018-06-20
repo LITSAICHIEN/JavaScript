@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript課題</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="title">
+    <h2>JavaScript課題</h2>
+  </div>
+    <div class="frs" id="windowShow">ライトボックス</div>
+    <!-- モーダルウィンドウ -->
+    <div class="box-wrapper" id="windowmodal">
+      <div class="modal">
+        <div id="window">
+          <h2>モーダルウィンドウです</h2>
+          <div class="close-modal">
+            <img src="images/close.jpg" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <nav>
+  <!-- メガメニュー -->
+   <div class="megamenu">
+    <ul class="mainmenu">
+      <li class="parents">商品
+       <ul class="submenu">
+         <li class="child"><a href="#">&gt;&nbsp;アコーディオン</a></li>
+         <li class="child"><a href="#">&gt;&nbsp;タブ切り替え</a></li>
+         <li class="child"><a href="#">&gt;&nbsp;スムーススクロール</a></li>
+        </ul>
+       </li>
+       <li class="parents">作り方
+        <ul class="submenu">
+         <li class="child"><a href="#">&gt;&nbsp;アコーディオン</a></li>
+         <li class="child"><a href="#">&gt;&nbsp;タブ切り替え</a></li>
+         <li class="child"><a href="#">&gt;&nbsp;スムーススクロール</a></li>
+        </ul>
+       </li>
+       <li class="parents">表現
+        <ul class="submenu">
+         <li class="child"><a href="#">&gt;&nbsp;アコーディオン</a></li>
+         <li class="child"><a href="#">&gt;&nbsp;タブ切り替え</a></li>
+         <li class="child"><a href="#">&gt;&nbsp;スムーススクロール</a></li>
+        </ul>
+       </li>
+       <li class="parents">コード
+        <ul class="submenu">
+         <li class="child"><a href="#">&gt;&nbsp;アコーディオン</a></li>
+         <li class="child"><a href="#">&gt;&nbsp;タブ切り替え</a></li>
+         <li class="child"><a href="#">&gt;&nbsp;スムーススクロール</a></li>
+        </ul>
+       </li>
+     </ul>
+    </div>
+    <!-- ハンバーガーメニュー -->
+    <div class="navToggle">
+     <span></span><span></span><span></span><span>MENU</span>
+    </div>
+     <div class="hamburgermenu">
+       <ul>
+         <li><a href="#">商品</a></li>
+         <li><a href="#">作り方</a></li>
+         <li><a href="#">表現</a></li>
+         <li><a href="#">コード</a></li>
+       </ul>
+     </div>
+  </nav>
+  <!-- スライドショーのオート系 -->
+  <div class="autoslide">
+    <ul>
+      <li><img src="images/autoslide1.jpg" alt="autoslide1"></li>
+      <li><img src="images/autoslide2.jpg" alt="autoslide2"></li>
+      <li><img src="images/autoslide3.jpg" alt="autoslide3"></li>
+      <li><img src="images/autoslide4.jpg" alt="autoslide4"></li>
+    </ul>
+  </div>
+  <!-- スライドショーのライトボタン系 -->
+  <div id="slider">
+    <div id="lightslides">
+			<div class="slider0"><a href="#1"><img src="images/lightslide1.jpg" alt="lightslide1"></a></div>
+			<div class="slider1"><a href="#2"><img src="images/lightslide2.jpg" alt="lightslide2"></a></div>
+			<div class="slider2"><a href="#3"><img src="images/lightslide3.jpg" alt="lightslide3"></a></div>
+			<div class="slider3"><a href="#4"><img src="images/lightslide4.jpg" alt="lightslide4"></a></div>
+    </div>
+    <div id="lightthumbnail">
+      <div class="slider0">●</div>
+      <div class="slider1">●</div>
+      <div class="slider2">●</div>
+      <div class="slider3">●</div>
+    </div>
+    <div id="sliderRight" class="moveSlide">&gt;</div>
+    <div id="sliderLeft" class="moveSlide">&lt;</div>
+	</div>
+  <!-- スライドショーのバナー表示系 -->
+  <div id="slideshow">
+    <div id="bannerslides">
+      <div class="slide0"><a href="#1"><img src="images/bannerslide1.jpg" alt="bannerslide1" /></a></div>
+      <div class="slide1"><a href="#2"><img src="images/bannerslide2.jpg" alt="bannerslide2" /></a></div>
+      <div class="slide2"><a href="#3"><img src="images/bannerslide3.jpg" alt="bannerslide3" /></a></div>
+      <div class="slide3"><a href="#4"><img src="images/bannerslide4.jpg" alt="bannerslide4" /></a></div>
+    </div>
+    <div id="thumbnail">
+      <div class="slide0"><img src="images/photo1.jpg" alt="bannerslide1" /></div>
+      <div class="slide1"><img src="images/photo2.jpg" alt="bannerslide1" /></div>
+      <div class="slide2"><img src="images/photo3.jpg" alt="bannerslide1" /></div>
+      <div class="slide3"><img src="images/photo4.jpg" alt="bannerslide1" /></div>
+    </div>
+    <div id="slideRight" class="moveSlide">&gt;</div>
+    <div id="slideLeft" class="moveSlide">&lt;</div>
+    </div>
+
+  <!-- アコーディオン -->
+  <div class="faq">
+        <ul id="faq-list">
+          <li class="faq-list-item">
+            <h3 class="menu"><span>+</span>&nbsp;開閉式コンテンツNo.1</h3>
+            <div class="contents">
+              <p>No.1のコンテンツ部分です。</p>
+            </div>
+          </li>
+          <li class="faq-list-item">
+            <h3 class="menu"><span>+</span>&nbsp;開閉式コンテンツNo.2</h3>
+            <div class="contents">
+              <p>No.2のコンテンツ部分です。</p>
+            </div>
+          </li>
+          <li class="faq-list-item">
+            <h3 class="menu"><span>+</span>&nbsp;開閉式コンテンツNo.3</h3>
+            <div class="contents">
+              <p>No.3のコンテンツ部分です。</p>
+            </div>
+          </li>
+          <li class="faq-list-item">
+            <h3 class="menu"><span>+</span>&nbsp;開閉式コンテンツNo.4</h3>
+            <div class="contents">
+              <p>No.4のコンテンツ部分です。</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+  <!-- タブ切り替え -->
+  <div class="tabs">
+        <ul class="tab">
+          <li class="active">タブ1</li>
+          <li>タブ2</li>
+          <li>タブ3</li>
+          <li>タブ4</li>
+        </ul>
+          <div class="content active">[タブ1]をクリックした時に表示されるコンテンツです。</div>
+          <div class="content">[タブ2]をクリックした時に表示されるコンテンツです。</div>
+          <div class="content">[タブ3]をクリックした時に表示されるコンテンツです。</div>
+          <div class="content">[タブ4]をクリックした時に表示されるコンテンツです。</div>
+  </div>
+  <!-- Ajax、json -->
+   <ul id="output"></ul>
+  <!-- スムーススクロール -->
+  <div id="top"><img src="images/topbtn.jpg" alt=""></div>
+<script src="script.js"></script>
+</body>
+</html>
