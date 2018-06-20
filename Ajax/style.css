@@ -4,6 +4,15 @@ table, td, th {
   border-collapse: collapse;
   border: 1px solid #000000;
 }
-table td, table th {
-  padding: 5px 10px;
+table th {
+  width: 100px;
+  padding: 0 20px;
+}
+th.first {
+  padding: 3px 0;
+  background-color: gray;
+  color: #fff;
+}
+th {
+  background-color: #ccc;
 }
