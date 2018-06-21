@@ -108,7 +108,7 @@ body, header {
 }
 .autoslide ul {
   width: 100%;
-  height: 50vw;
+  height: 30vw;
   text-align: left;
   overflow: hidden;
   position: relative;
@@ -134,7 +134,7 @@ body, header {
 #slider #lightslides {
   width: 100%;
   position: relative;
-  height: 668px;
+  height: 30vw;
 }
 #slider #lightslides div {
   display: none;
@@ -152,8 +152,8 @@ body, header {
   display: inline-block;
   text-indent: -9999px;
   background: gray;
-  width: 15px;
-  height: 15px;
+  width: 10px;
+  height: 10px;
   margin-right: 3%;
   border-radius: 50%;
   cursor: pointer;
@@ -174,7 +174,7 @@ body, header {
   font-size: 60px;
   color: #fff;
   position: absolute;
-  top: 35%;
+  top: 33%;
   cursor: pointer;
 }
 #slider #sliderRight {
@@ -199,7 +199,7 @@ body, header {
 #slideshow #bannerslides {
   width: 100%;
   position: relative;
-  height: 668px;
+  height: 38vw;
 }
 #slideshow #bannerslides div {
   display: none;
@@ -210,20 +210,21 @@ body, header {
 }
 #slideshow #thumbnail {
   width: 1260px;
-  margin-top: 10px;
+  margin-top: 0;
 }
 #slideshow #thumbnail div {
   width: 24.5%;
   display: inline-block;
   cursor: pointer;
   margin-right: 2.9px;
-  margin-bottom: 3%;
+  margin-bottom: 2%;
+  opacity: 0.4;
 }
 #slideshow #thumbnail div:last-child {
   margin-right: 0;
 }
 #slideshow #thumbnail div.active {
-  opacity: 0.7;
+  opacity: 1;
 }
 #slideshow #thumbnail div img {
   width: 100%;
@@ -235,7 +236,7 @@ body, header {
   font-size: 60px;
   color: #fff;
   position: absolute;
-  top: 35%;
+  top: 32%;
   cursor: pointer;
 }
 #slideshow #slideRight {
@@ -437,8 +438,11 @@ li.faq-list-item:last-child {
       -moz-transform: rotate(45deg);
       transform: rotate(45deg);
   }
-  #slideshow #bannerslides, #slider #lightslides {
-    height: 52vw;
+  #slider #lightslides {
+    height: 32vw;
+  }
+  #slideshow #bannerslides {
+    height: 40vw;
   }
   #slideshow #thumbnail div {
     width: 24.34%;
@@ -451,5 +455,6 @@ li.faq-list-item:last-child {
   #slideshow #slideRight, #slideshow #slideLeft,
   #slider #sliderRight, #slider #sliderLeft {
     font-size: 5vw;
+    top: 25%;
   }
 }
